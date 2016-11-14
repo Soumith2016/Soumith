@@ -1,0 +1,22 @@
+Feature: Change description New to New Car Purchase
+  Displaying description name as New
+  As a user that makes little confusion
+  I want to see description as New Car Purchase
+
+  Scenario: GP Item description listing New instead of New Car Purchase
+    Given invoice billing type is PPSMONTH
+    Given Min Approved Date and Min Sale Date
+    And click on Preview Sales
+    And select invoice and add it to the Working Batch
+    And Publish invoice from Working Batch
+    When we publish working batch to GP
+    Then log into GP and verify invoice description is displaying "New" which should not do that
+
+  Scenario: GP Item description should display New Car Purchase instead of New
+    Given invoice billing type as PPS
+    Given Min Approved Date and Min Sale Date
+    And click on Preview Sales
+    And Select invoice and add it to the Working Batch
+    And Publish working batch
+    When we publish working batch to GP
+    Then log into GP and verify invoice description is displaying "New Car Purchase" which is correct display
